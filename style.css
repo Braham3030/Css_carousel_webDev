@@ -2,3 +2,120 @@
 	margin: 0;
 	box-sizing: border-box;
 }
+
+.romy-carousel {
+	--v-carousel-width: 80vw;
+	background-color: #C38391;
+	padding-block: 5rem;
+
+	ul {
+		padding: 0;
+		width: var(--v-carousel-width);
+		margin-inline: auto;
+		display: flex;
+		gap: 2rem;
+		overflow-x: scroll;
+		scroll-behavior: smooth;
+		anchor-name: --romy-carousel;
+		scroll-snap-type: x mandatory;
+		scroll-marker-group: after;
+
+		&::scroll-marker-group {
+			margin-block: .5em;
+			display: flex;
+			justify-content: center;
+			gap: .5em;
+		}
+
+		&::scroll-button(right), 
+		&::scroll-button(left) {
+			margin-block: 1rem;
+			content: "→" / "Scroll Right";
+			cursor: pointer;
+			border-radius: 50%;
+			border: 3px solid white;
+			color: white;
+			background-color: #B66879;
+			font-size: 2rem;
+			padding-bottom: .5rem;
+			position: fixed;
+			position-anchor: --romy-carousel;
+			position-area: right center;
+			translate: -25%;
+		}
+
+		&::scroll-button(left) {
+			content: "←" / "Scroll Left";
+			position-area: left center;
+			translate: 25%;
+		}
+
+		&::scroll-button(right):disabled, 
+		&::scroll-button(left):disabled {
+			cursor: not-allowed;
+			background-color: #93B7BE;
+		}
+
+		&::before, 
+		&::after {
+			content: '';
+			flex: 0 0 calc(var(--v-carousel-width) / 2);
+			display: block;
+		}
+	}
+
+	::-webkit-scrollbar {
+		display: none;
+	}
+
+	li {
+		flex: 0 0 calc(var(--v-carousel-width) / 2);
+		height: 30em;
+		list-style-type: none;
+		text-align: center;
+		background: grey;
+		border: 2px solid black;
+		border-radius: .5rem;
+		scroll-snap-align: center;
+	}
+
+	li::scroll-marker {
+		display: inline-block;
+		content: '';
+		height: 1em;
+		width: 1em;
+		background-color: #93B7BE;
+		border-radius: 50%;
+	}
+
+	li::scroll-marker:target-current {
+		background-color: #454545;
+	}
+
+	figure {
+		display: grid;
+		border-radius: inherit;
+
+		> * {
+			grid-row-start: 1;
+			grid-column-start: 1;
+			border-radius: inherit;
+		}
+
+		> figcaption {
+			margin-bottom: .5rem;
+			align-self: end;
+		}
+
+		> picture {
+			height: 29.8em;
+		}
+		
+		> picture > img {
+			width: 100%;
+			height: 100%;
+			border-radius: inherit;
+			object-fit: cover;
+		}
+	}
+}
