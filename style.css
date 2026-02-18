@@ -2,3 +2,78 @@
 	margin: 0;
 	box-sizing: border-box;
 }
+
+#alisha ul  {
+    block-size: 100svh;
+    inline-size: 100cqi;
+    overflow-x: hidden;
+	overflow-y: auto;
+    display: grid;
+    grid-auto-flow: row;
+    justify-content: start;
+    place-self: center start;
+    gap: 4px;
+	anchor-name: --carousel;
+	scroll-marker-group: before;
+	scroll-snap-type: y mandatory;
+}
+
+#alisha ul::scroll-marker-group {
+	display: flex;
+	align-items: start;
+	flex-direction: column;
+}
+
+#alisha ul::before,
+#alisha ul::after {
+    content: "";
+    display: block;
+    block-size: 20cqb;
+}
+
+#alisha ul > li img {
+    white-space: nowrap;
+    font-family: var(--font-antique);
+    font-size: var(--font-size-5);
+    transition: scale 1s var(--ease-spring-4);
+    transform-origin: right center;
+    animation: wheel-rotate linear both;
+    animation-timeline: view();
+    animation-range: contain 0% contain 106%;
+}
+
+#alisha li {
+    padding: 0;
+	list-style: none;
+    scroll-snap-align: center;
+    text-align: end;
+    block-size: 20svb;
+
+}
+
+#alisha li::scroll-marker {
+	content: " ";
+	border-radius: 10px;
+	margin: 10px;
+	border: 1px solid rgb(0, 12, 82);
+	height: 1em;
+	width: 1em;
+}
+
+#alisha ::scroll-marker:target-current {
+  background: rgb(0, 12, 82);
+}
+
+@keyframes wheel-rotate {
+    0% {
+		scale: 0.5;
+    	transform: translateX(150px) rotate(-15deg);
+    }
+    50% {
+      	transform: translateX(0px) rotate(0deg);
+    }
+    100% {
+		scale: 1;
+		transform: translateX(150px) rotate(5deg);
+    }
+}
