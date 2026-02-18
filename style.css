@@ -74,8 +74,10 @@ ul::scroll-button(left) {
 ul::scroll-button(left):hover, ul::scroll-button(right):hover {
 	transform: scale(1.1);
 	content: 'left 👈';
-	width: 10em;
-	height: 5em;
+	font-size: 18px;
+	font-weight: 900;
+	width: 8em;
+	height: 4em;
 	translate: 10%;
 	transition: all 0.2s ease-in-out;
 }
@@ -123,6 +125,10 @@ li:hover {
 	transform: scale(1.1);
 }
 
+div:hover {
+	box-shadow: 0 0 20px rgba(212, 150, 15, 0.6);
+}
+
 p {
 	position: absolute;
 	bottom: -40%;
@@ -167,6 +173,11 @@ li::scroll-marker {
 	background-color: transparent;
 	box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 	border-radius: 50%;
+}
+
+li::scroll-marker:hover {
+	transform: translateY(-30%);
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 
 li::scroll-marker:target-current {
