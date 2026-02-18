@@ -7,6 +7,36 @@
 	--v-carousel-width: 80vw;
 	background-color: #C38391;
 	padding-block: 5rem;
+	font-family: monospace;
+
+	h2 {
+		font-size: 2.5em;
+		text-align: center;
+		margin-bottom: 2rem;
+	}
+
+	h4 {
+		color: #C38391;
+		font-size: 1.5em;
+		margin-block: .5rem;
+		letter-spacing: .5rem;
+		text-transform: uppercase;
+		text-shadow:
+			-2px -2px 0 #000,
+			2px -2px 0 #000,
+			-2px 2px 0 #000,
+			2px 2px 0 #000,
+			-3px 0px 0 #000,
+			3px 0px 0 #000,
+			0px -3px 0 #000,
+			0px 3px 0 #000;
+	}
+
+	p {
+		font-size: 1.1em;
+		padding-inline: 1rem;
+		color: #93B7BE;
+	}
 
 	ul {
 		padding: 0;
@@ -103,7 +133,8 @@
 		}
 
 		> figcaption {
-			margin-bottom: .5rem;
+			padding-bottom: .5rem;
+			background: linear-gradient(to top, #454545, 75%, transparent);
 			align-self: end;
 		}
 
