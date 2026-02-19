@@ -227,3 +227,68 @@
 		transform: translateX(150px) rotate(5deg);
     }
 }
+
+
+.scroll-wrapper {
+
+body {
+    height: 90dvh;
+}
+
+
+ul {
+    perspective: 1000000px;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+    scrollbar-width: none;        
+    /* /* source https://stackoverflow.com/questions/16670931/hide-scroll-bar-but-while-still-being-able-to-scroll */ 
+        aspect-ratio: 9 / 16;
+        list-style-type: none;
+        /* source https://nerdy.dev/notebook/scroll-driven-animations.html#entrances */
+		
+}
+
+
+
+li {
+    height: 25vh;
+    width: auto;
+    box-sizing: border-box;
+    flex: 0 0 auto;
+    transition: .3s;
+    list-style-type: none;
+
+}
+
+img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+
+  @keyframes rotate-z {
+    from {
+      transform: rotateZ(-5turn);
+    }
+  }
+  ul {
+        & li {
+            animation: rotate-z linear both;
+            animation-timeline: view();
+            animation-range: entry 0% entry 100%;
+        }
+    }
+    
+@media (prefers-reduced-motion: no-preference) {
+    ul {
+        & li {
+            animation: rotate-z linear both;
+            animation-timeline: view();
+            animation-range: entry 0% entry 100%;
+        }
+    }
+}
+}
