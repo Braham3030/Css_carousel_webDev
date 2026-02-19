@@ -242,7 +242,8 @@ ul {
     display: flex;
     flex-direction: column;
     overflow-y: scroll;
-    scrollbar-width: none;        
+    scrollbar-width: none;  
+	padding: 0;      
     /* /* source https://stackoverflow.com/questions/16670931/hide-scroll-bar-but-while-still-being-able-to-scroll */ 
         aspect-ratio: 9 / 16;
         list-style-type: none;
